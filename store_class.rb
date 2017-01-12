@@ -7,27 +7,31 @@
 
 class Store
 
-attr_reader :description, :color, :type, :price
-attr_writer :price
+attr_reader :description, :color, :type
+attr_accessor :price
 
-def initialize (description, color, type, price)
-	@description = description
-	@color = color
-	@type = type
-	@price = price
+def initialize (store_hash)
+	@description = store_hash[:description]
+	@color = store_hash[:color]
+	@type = store_hash[:type]
+	@price = store_hash[:price]
+end
+
+def info
+	puts "product #{@description} with type: #{@type} costs: #{@price}"
 end
 
 end
 
-product1 = Store.new("HP", "black", "Laptop", 300000)
+product1 = Store.new({description: "HP", color: "black", type: "Laptop", price: 300000})
 product1.price = 500000
-puts product1.description
-product2 = Store.new("Macbook", "Silver", "Laptop", 500000)
-#puts product1.price
-product3 = Store.new("Dell", "Red", "Laptop", 400000)
+product1.info
+# product2 = Store.new("Macbook", "Silver", "Laptop", 500000)
+# #puts product1.price
+# product3 = Store.new("Dell", "Red", "Laptop", 400000)
 
-puts "#{product1.description} computer with type: #{product1.type} costs: #{product1.price}"
-puts product2.price
-puts product3.price
+# puts "#{product1.description} computer with type: #{product1.type} costs: #{product1.price}"
+# puts product2.price
+# puts product3.price
 
 #product2 = Product.new ("Mackbook", )
