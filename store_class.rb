@@ -7,27 +7,14 @@
 
 class Store
 
+attr_reader :description, :color, :type, :price
+attr_writer :price
+
 def initialize (description, color, type, price)
 	@description = description
 	@color = color
 	@type = type
 	@price = price
-end
-
-def description
-	@description
-end
-
-def price
-	@price
-end
-
-def price=(price)
-	@price=price
-end
-
-def type
-	@type
 end
 
 end
